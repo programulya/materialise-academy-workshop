@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function() {
     'use strict';
 
     angular
@@ -8,11 +8,10 @@
     homeController.$inject = ['criminalFactory', '$scope', '$templateCache'];
 
     function homeController(criminalFactory, $scope, $templateCache) {
-        /* jshint validthis:true */
         var vm = this;
         vm.title = 'homeController';
         vm.deleteCriminal = deleteCriminal;
-        
+
         activate();
 
         function activate() {
@@ -21,14 +20,13 @@
 
         function deleteCriminal(id) {
             criminalFactory.deleteByID(id)
-                .success(function (result) {
-
-            });
+                .success(function() {
+                });
         }
 
         function getAllCriminal() {
             criminalFactory.getAll()
-                .success(function (result) {
+                .success(function(result) {
                     vm.criminals = result;
                 });
         };

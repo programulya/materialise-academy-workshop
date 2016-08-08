@@ -1,33 +1,36 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-    <div ng-controller="homeController as vm">
+<div ng-controller="homeController as vm">
+    <div>
         <form name="newCriminalForm">
             <label>Name:</label> <input class="form-control"
                                         ng-minlength="10"
                                         ng-maxlength="100" name="name"
-                                        ng-model="vm.newCriminal.Name" />
+                                        ng-model="vm.newCriminal.Name"/>
             <div ng-show="newCriminalForm.name.$error.minlength">Tye to get rid of me.</div>
-            <label>Descrition:</label> <input class="form-control" ng-model="vm.newCriminal.Description" />
+            <label>Descrition:</label> <input class="form-control" ng-model="vm.newCriminal.Description"/>
             <label>Reward:</label> <input valid-number name="reward" class="form-control"
-       ng-model="vm.newCriminal.Reward" />
-            <button style="margin:20px" class="btn-info" type="submit" ng-click="vm.addNewCriminal()">Add new criminal</button>
+                                          ng-model="vm.newCriminal.Reward"/>
+            <button style="margin: 20px" class="btn-info" type="submit" ng-click="vm.addNewCriminal()">Add new criminal</button>
         </form>
-        <br />
-
-        <label>Filter by name:</label><input type="text" ng-model="vm.filter.Name" />
-        <div ng-repeat="criminal in vm.criminals | filter: vm.filter.Name">
-            <div>Number: {{$index}}</div>
-            <span style="font-weight:bold;margin-right:20px;" ng-bind="criminal.Name"></span>
-            <button ng-click="vm.deleteCriminal(criminal.ID)">X</button>
-            <br />
-            <div ng-bind="criminal.Description"></div> <br />
-            <div ng-bind="'Reward for me is ' + criminal.Reward"></div>
-            <br />
-        </div>
-
-
     </div>
+
+    <div>
+        <label>Filter by name:</label><input type="text" ng-model="vm.filter.Name"/>
+        <div ng-repeat="criminal in vm.criminals | filter: vm.filter.Name">
+            <div>
+                <div>Number: {{$index}}</div>
+                <span style="font-weight: bold; margin-right: 20px;" ng-bind="criminal.Name"></span>
+                <button ng-click="vm.deleteCriminal(criminal.ID)">X</button>
+            </div>
+
+            <div>
+                <div ng-bind="criminal.Description"></div>
+                <div ng-bind="'Reward for me is ' + criminal.Reward"></div>
+            </div>
+        </div>
+    </div>
+</div>

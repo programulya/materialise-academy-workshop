@@ -6,7 +6,7 @@
         .directive('validNumber', validNumber);
 
     validNumber.$inject = ['$filter'];
-    
+
     function validNumber($filter) {
         var directive = {
             link: link,
@@ -20,7 +20,7 @@
                 return;
             }
 
-            ngModelCtrl.$formatters.unshift(function (a) {
+            ngModelCtrl.$formatters.unshift(function(a) {
 
                 if (!ngModelCtrl.$modelValue || document.activeElement === attrs.$$element[0])
                     return ngModelCtrl.$modelValue;
@@ -29,7 +29,7 @@
                 return result;
             });
 
-            ngModelCtrl.$parsers.unshift(function (viewValue) {
+            ngModelCtrl.$parsers.unshift(function(viewValue) {
 
                 if (!viewValue)
                     return viewValue;
@@ -54,5 +54,4 @@
             }
         }
     }
-
 })();

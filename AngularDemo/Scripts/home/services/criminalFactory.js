@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function() {
     'use strict';
 
     angular
@@ -16,11 +16,11 @@
         return service;
 
         function getAll() {
-            return $http.get("/api/criminals");
+            return $http.get('/api/criminals');
         }
 
         function deleteByID(id) {
-            return $http.delete("/api/criminals", { params: { id: id } });
+            return $http.delete('/api/criminals', { params: { id: id } });
         }
     }
 })();

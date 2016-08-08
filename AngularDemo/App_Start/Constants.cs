@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AngularDemo.App_Start
+﻿namespace AngularDemo
 {
-    public class Constants
+    public static class Constants
     {
         public const string AngularBundle = "~/scripts/angular";
         public const string ApplicationBundle = "~/scripts/app";

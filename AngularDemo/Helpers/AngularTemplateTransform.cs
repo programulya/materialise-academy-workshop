@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
 using System.Web;
 using System.Web.Optimization;
@@ -11,6 +8,7 @@ namespace AngularDemo.Helpers
     public class AngularTemplateTransform : IBundleTransform
     {
         private readonly string _moduleName;
+
         public AngularTemplateTransform(string moduleName)
         {
             _moduleName = moduleName;
@@ -30,11 +28,13 @@ namespace AngularDemo.Helpers
             foreach (var file in response.Files)
             {
                 var key = file.VirtualFile.VirtualPath;
-                var content = string.Empty;
+                string content;
+
                 using (var fileStream = file.VirtualFile.Open())
                 {
                     content = new StreamReader(fileStream).ReadToEnd();
                 }
+
                 content = HttpUtility.JavaScriptStringEncode(content);
 
                 scriptBuilder.AppendFormat(@"           $templateCache.put('{0}','{1}');", key, content);
@@ -45,7 +45,7 @@ namespace AngularDemo.Helpers
             scriptBuilder.AppendLine("  ]);");
             scriptBuilder.AppendLine("})();");
 
-            response.Files = new BundleFile[] { };
+            response.Files = new BundleFile[] {};
             response.Content = scriptBuilder.ToString();
             response.ContentType = "text/javascript";
         }

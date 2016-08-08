@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -149,7 +150,7 @@
     <Compile Include="Helpers\AngularTemplateBundle.cs" />
     <Compile Include="Helpers\AngularTemplateTransform.cs" />
     <Compile Include="Models\Criminal.cs" />
-    <Compile Include="Models\CriminalDTO.cs" />
+    <Compile Include="Models\CriminalDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
